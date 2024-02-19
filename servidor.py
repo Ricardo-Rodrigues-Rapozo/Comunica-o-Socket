@@ -44,6 +44,7 @@ class Servidor():
                 msg = con.recv(1024) # recebo os dados brutos em bytes
                 #transformando o conjunto de bytes em strings
                 msg_s = str(msg.decode('ascii')) # padrao é operando1 operação e operando2
+                op = 'none'
                 for x in operadores:
                     if msg_s.find(x) > 0:
                         op = x
