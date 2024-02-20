@@ -50,21 +50,21 @@ class Servidor():
                         op = x
                         msg_s = msg_s.split(op)# split retorna uma lista separa pelo op
                         break
-                    if op =='+':
-                        resp = float(msg_s[0]) + float(msg_s[1])
-                    elif op =='-':
-                        resp = float(msg_s[0]) - float(msg_s[1])
-                    elif op =='*':
-                        resp = float(msg_s[0]) * float(msg_s[1])
-                    elif op == '/':
-                        resp = float(msg_s[0]) / float(msg_s[1])
-                    elif op =='%':
-                        resp = float(msg_s[0]) % float(msg_s[1])
-                    else:
-                        print("Operação invalida")
+                if op =='+':
+                    resp = float(msg_s[0]) + float(msg_s[1])
+                elif op =='-':
+                    resp = float(msg_s[0]) - float(msg_s[1])
+                elif op =='*':
+                    resp = float(msg_s[0]) * float(msg_s[1])
+                elif op == '/':
+                    resp = float(msg_s[0]) / float(msg_s[1])
+                elif op =='%':
+                    resp = float(msg_s[0]) % float(msg_s[1])
+                else:
+                    print("Operação invalida")
                     
-                    con.send(bytes(str(resp),'ascii'))# converte para str antes de passar para bytes
-                    print(client," : Requisição atendida")
+                con.send(bytes(str(resp),'ascii'))# converte para str antes de passar para bytes
+                print(client," : Requisição atendida")
             except OSError as e: # USADO PARA ERROS DE I/O 
                 print("Erro na conexão",client,":",e.args)
                 return # este return serve para encerrar o metodo service 
